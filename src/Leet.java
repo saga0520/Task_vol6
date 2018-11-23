@@ -13,7 +13,10 @@ public class Leet {
 		System.out.println( );
 
 		// 標準入力lineの長さは100文字以内とし、lineの長さ分回す
-		for (int i = 0; i < line.length() && line.length() < 100; i++) {
+		if (1 > line.length() || line.length() >= 100) {
+			System.out.print("標準入力の文字列の長さは1文字以上100文字以下です");
+		}
+		for (int i = 0; i < line.length(); i++) {
 
 			// lineの先頭から1文字ずつString型にして取り出す
 			lineAray[i] = String.valueOf(line.charAt(i));
@@ -38,6 +41,5 @@ public class Leet {
 			//変換した文字列を出力する
 			System.out.print(lineAray[i]);
 		}
-		System.out.println( );
 	}
 }
