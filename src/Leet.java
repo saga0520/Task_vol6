@@ -12,8 +12,8 @@ public class Leet {
 		String[] lineAray = new String[line.length()];
 		System.out.println( );
 
-		// 標準入力lineの長さ分回す
-		for (int i = 0; i < line.length(); i++) {
+		// 標準入力lineの長さは100文字以内とし、lineの長さ分回す
+		for (int i = 0; i < line.length() && line.length() < 100; i++) {
 
 			// lineの先頭から1文字ずつString型にして取り出す
 			lineAray[i] = String.valueOf(line.charAt(i));
