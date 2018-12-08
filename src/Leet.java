@@ -8,7 +8,7 @@ public class Leet {
 		Scanner sc = new Scanner(System.in);
 		String line = sc.nextLine();
 
-		// lineArayに1文字多い配列を作る
+		// inputlineAray配列を作る
 		String[] lineAray = new String[line.length()];
 		System.out.println( );
 
@@ -16,30 +16,43 @@ public class Leet {
 		if (1 > line.length() || line.length() > 100) {
 			System.out.print("標準入力の文字列の長さは1文字以上100文字以下です");
 		}
-		for (int i = 0; i < line.length(); i++) {
 
-			// lineの先頭から1文字ずつString型にして取り出す
-			lineAray[i] = String.valueOf(line.charAt(i));
+		//Leet変換メソッドを呼び出す
+		LeetConversion(line,lineAray);
+	}
+
+	//Leet変換用のメソッド
+	public static void LeetConversion(String inputLine,String[] inputlineAray) {
+		for (int i = 0; i < inputLine.length(); i++) {
+
+			// inputlineの先頭から1文字ずつString型にして取り出す
+			inputlineAray[i] = String.valueOf(inputLine.charAt(i));
 
 			//置き換える規則と比較し、条件と一致したら変換する
-			if(lineAray[i].equals("A")) {
-				lineAray[i] = "4";
-			}else if(lineAray[i].equals("E")) {
-				lineAray[i] = "3";
-			}else if(lineAray[i].equals("G")) {
-				lineAray[i] = "6";
-			}else if(lineAray[i].equals("I")) {
-				lineAray[i] = "1";
-			}else if(lineAray[i].equals("O")) {
-				lineAray[i] = "0";
-			}else if(lineAray[i].equals("S")) {
-				lineAray[i] = "5";
-			}else if(lineAray[i].equals("Z")) {
-				lineAray[i] = "2";
+			if(inputlineAray[i].equals("A")) {
+				inputlineAray[i] = "4";
+			}else if(inputlineAray[i].equals("E")) {
+				inputlineAray[i] = "3";
+			}else if(inputlineAray[i].equals("G")) {
+				inputlineAray[i] = "6";
+			}else if(inputlineAray[i].equals("I")) {
+				inputlineAray[i] = "1";
+			}else if(inputlineAray[i].equals("O")) {
+				inputlineAray[i] = "0";
+			}else if(inputlineAray[i].equals("S")) {
+				inputlineAray[i] = "5";
+			}else if(inputlineAray[i].equals("Z")) {
+				inputlineAray[i] = "2";
+
+			//小文字のアルファベットは非表示とする
+			}else if(inputlineAray[i].matches("[a-z]")) {
+				System.out.println();
+				System.out.println("アルファベットは大文字で入力してください");
+				System.exit(0);
 			}
 
-			//変換した文字列を出力する
-			System.out.print(lineAray[i]);
+			//Leet変換した文字列を出力する
+			System.out.print(inputlineAray[i]);
 		}
 	}
 }
